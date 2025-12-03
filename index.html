@@ -3,278 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOGO: QUIZ INTERATIVO!</title>
+    <title>Meu Portfólio - Ana Clara Nunes Pereira</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(135deg, #ff3030, #580c0c);
-            min-height: 100vh;
-        }
-
-        .card {
-            border-radius: 15px;
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.01);
-        }
-
-        .option-btn {
-            font-size: 1.15rem;
-            transition: 0.2s;
-        }
-
-        .option-btn:hover {
-            transform: scale(1.07);
-        }
-
-        #game-container,
-        #result-container {
-            display: none;
-        }
-
-        .fade-in {
-            animation: fade 0.4s ease-in-out;
-        }
-
-        @keyframes fade {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1, h2, h3, h4 {
-            font-weight: 700;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-
-            <h1 class="text-center mb-4">🎮 Jogo: QUIZ INTERATIVO!</h1>
-
-            <!-- TELA DO NOME -->
-            <div id="name-container" class="card shadow fade-in">
-                <div class="card-body text-center p-4">
-                    <h4 class="mb-3">Digite seu nome:</h4>
-                    <div class="input-group input-group-lg">
-                        <input type="text" id="player-name-input" class="form-control" placeholder="Ex: João Silva">
-                        <button id="start-game-btn" class="btn btn-success">Começar</button>
-                    </div>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-glass">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ana Clara Nunes Pereira</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
             </div>
-
-            <!-- TELA DO JOGO -->
-            <div id="game-container" class="card shadow fade-in mt-4">
-                <div class="card-body p-4">
-
-                    <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded mb-3">
-                        <h5>Jogador: <span id="player-name-display" class="text-primary fw-bold"></span></h5>
-                        <h5>Pontos: <span id="score-display" class="badge bg-dark fs-5">0</span></h5>
-                    </div>
-
-                    <h3 id="question-title" class="text-center"></h3>
-                    <p id="question-text" class="lead text-center mb-4"></p>
-
-                    <div id="options-container" class="d-grid gap-3"></div>
-
-                </div>
-            </div>
-
-            <!-- TELA DO RESULTADO -->
-            <div id="result-container" class="card shadow fade-in mt-4">
-                <div class="card-body text-center p-5">
-                    <h2>Fim de Jogo!</h2>
-                    <h3 id="final-score-text" class="my-4"></h3>
-                    <button id="play-again-btn" class="btn btn-primary btn-lg">Jogar Novamente</button>
-                </div>
-            </div>
-
-            <!-- RANKING -->
-            <div id="high-score-container" class="card shadow mt-4 fade-in">
-                <div class="card-header d-flex justify-content-between">
-                    <h4>🏆 Ranking (Top 3)</h4>
-                    <button id="clear-scores-btn" class="btn btn-danger btn-sm">Limpar</button>
-                </div>
-                <table class="table mb-0">
-                    <thead>
-                    <tr class="text-center">
-                        <th>#</th>
-                        <th>Nome</th>
-                        <th>Pontuação</th>
-                    </tr>
-                    </thead>
-                    <tbody id="high-score-list"></tbody>
-                </table>
-            </div>
-
         </div>
-    </div>
-</div>
+    </nav>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <header class="hero-section d-flex align-items-center justify-content-center text-center">
+        <div class="container">
+            <img src="img/nanasunoo.jpeg" alt="Foto de Ana Clara Nunes Pereira" class="foto-perfil mb-4">
+            <h1 class="display-4">Ana Clara Nunes Pereira</h1>
+            <p class="lead">Eu sou <span id="typewriter" class="typewriter-text"></span></p>
+            <div class="mt-4">
+                <a href="#projetos" class="btn btn-primary btn-lg rounded-pill px-4 m-2">Meus Projetos</a>
+                <a href="https://github.com/sunoonana" target="_blank" class="btn btn-outline-light btn-lg rounded-pill px-4 m-2">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+    </header>
 
-<script>
-const questions = [
-    { question: "Qual é a capital do Brasil?", options: ["São Paulo","Rio de Janeiro","Brasília","Recife"], answer: "Brasília" },
-    { question: "Quanto é 7 × 8?", options: ["56","54","64","48"], answer: "56" },
-    { question: "Qual planeta é o Planeta Vermelho?", options: ["Marte","Vênus","Júpiter","Saturno"], answer: "Marte" },
-    { question: "Qual destes é um mamífero?", options: ["Pinguim","Baleia","Tubarão","Crocodilo"], answer: "Baleia" },
-    { question: "Quem escreveu Dom Quixote?", options: ["Shakespeare","Cervantes","Machado de Assis","Dostoievski"], answer: "Cervantes" },
-    { question: "Maior oceano do mundo?", options: ["Índico","Pacífico","Atlântico","Ártico"], answer: "Pacífico" },
-    { question: "Capital da Rússia?", options: ["Moscou","Pequim","Oslo","Dubai"], answer: "Moscou" },
-    { question: "Autor da Mona Lisa?", options: ["Michelangelo","Da Vinci","Rafael","Van Gogh"], answer: "Da Vinci" },
-    { question: "Qual é o menor país do mundo?", options: ["Mônaco","Nauru","Vaticano","San Marino"], answer: "Vaticano" },
-    { question: "Quem criou o Windows?", options: ["Elon Musk","Bill Gates","Alan Turing","Steve Jobs"], answer: "Bill Gates" },
-    { question: "Qual desses é um gás?", options: ["Oxigênio","Mercúrio","Cobre","Chumbo"], answer: "Oxigênio" },
-    { question: "Quantos dias tem 1 ano bissexto?", options: ["364","365","366","367"], answer: "366" },
-    { question: "Maior animal do mundo?", options: ["Elefante","Baleia-Azul","Tubarão-Branco","Girafa"], answer: "Baleia-Azul" },
-    { question: "Qual é o idioma mais falado?", options: ["Inglês","Hindi","Espanhol","Mandarim"], answer: "Mandarim" },
-    { question: "Em que continente fica o Egito?", options: ["Ásia","Europa","África","Oceania"], answer: "África" },
-    { question: "O Sol é uma…", options: ["Estrela","Lua","Galáxia","Nebulosa"], answer: "Estrela" },
-    { question: "1 km tem quantos metros?", options: ["10","100","1000","10.000"], answer: "1000" },
-    { question: "Quantos planetas existem no Sistema Solar?", options: ["7","8","9","10"], answer: "8" },
-    { question: "Quem descobriu o Brasil?", options: ["Pedro Álvares Cabral","Dom Pedro I","Cristóvão Colombo","Vasco da Gama"], answer: "Pedro Álvares Cabral" },
-];
+    <main>
+        <section id="sobre" class="container py-5 fade-in-section">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="display-5 mb-4">Sobre Mim</h2>
+                    <p class="lead">Olá! Sou uma estudante do Instituto Federal do Norte de Minas Gerais (IFNMG) do campus de Jnaúba e sou apaixonada por criar soluções e aprender novas tecnologias. Atualmente, estou focada em aprimorar minhas habilidades em desenvolvimento web dentro da instituição e melhorar as minhas habilidades dentro da área de informática.</p>
+                    <a href="https://www.linkedin.com/in/ana-clara-nunes-pereira-7a2018399/" target="_blank" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="bi bi-linkedin"></i> Meu LinkedIn
+                    </a>
+                </div>
+                <div class="col-md-6 text-center mt-4 mt-md-0">
+                    <img src="img/nanasunoo.jpeg"Foto ilustrativa" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </section>
 
-const QUESTIONS_PER_GAME = 5;
+        <section id="projetos" class="py-5 section-darker fade-in-section">
+            <div class="container">
+                <h2 class="text-center display-5 mb-5">Projetos Recentes</h2>
+                <div class="row g-4">
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="project-card">
+                            <h3 class="card-title">AppLogin com Firebase</h3>
+                            <p class="card-text">Um app de login e cadastro com visual moderno (glassmorphism), Bootstrap 5 e autenticação real usando Firebase.</p>
+                            <div class="card-tags">
+                                <span class="badge bg-primary">HTML</span>
+                                <span class="badge bg-info text-dark">CSS</span>
+                                <span class="badge bg-warning text-dark">JavaScript</span>
+                                <span class="badge bg-danger">Firebase</span>
+                            </div>
+                            <a href="https://sunoonana.github.io/app-login-anaclara/" target="_blank" class="btn btn-outline-light mt-4">
+                                <i class="bi bi-github"></i> Ver no GitHub
+                            </a>
+                        </div>
+                    </div>
 
-let currentPlayerName = "";
-let score = 0;
-let currentQuestionIndex = 0;
-let questionsShuffled = [];
-let highScores = [];
+                    <div class="col-lg-4 col-md-6">
+                        <div class="project-card">
+                            <h3 class="card-title">Meu Portfólio Web</h3>
+                            <p class="card-text">Meu currículo digital e portfólio de projetos, construído com HTML, CSS moderno (Dark Mode, Flexbox) e JavaScript.</p>
+                            <div class="card-tags">
+                                <span class="badge bg-primary">HTML</span>
+                                <span class="badge bg-info text-dark">CSS</span>
+                                <span class="badge bg-warning text-dark">JavaScript</span>
+                            </div>
+                            <a href="https://sunoonana.github.io/quizfinal/" target="_blank" class="btn btn-outline-light mt-4">
+                                <i class="bi bi-github"></i> Ver no GitHub
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="project-card">
+                            <h3 class="card-title">Próximo Projeto</h3>
+                            <p class="card-text">Em breve, um novo projeto explorando [Tecnologia, ex: React ou Python] estará disponível aqui.</p>
+                            <div class="card-tags">
+                                <span class="badge bg-secondary">Em breve</span>
+                            </div>
+                            <a href="#" class="btn btn-outline-secondary mt-4 disabled">
+                                <i class="bi bi-hourglass-split"></i> Aguarde
+                            </a>
+                        </div>
+                    </div>
 
-const nameContainer = document.getElementById("name-container");
-const gameContainer = document.getElementById("game-container");
-const resultContainer = document.getElementById("result-container");
+                </div>
+            </div>
+        </section>
 
-document.getElementById("start-game-btn").addEventListener("click", startGame);
-document.getElementById("play-again-btn").addEventListener("click", showNameScreen);
-document.getElementById("clear-scores-btn").addEventListener("click", clearHighScores);
+        <section id="habilidades" class="container py-5 fade-in-section">
+            <h2 class="text-center display-5 mb-5">Minhas Habilidades</h2>
+            <div class="text-center" id="skill-tags">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript (ES6+)</span>
+                <span class="skill-tag">Bootstrap 5</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">Metodologias Ágeis</span>
+                <span class="skill-tag">Design Responsivo</span>
+            </div>
+        </section>
 
-function startGame() {
-    const name = document.getElementById("player-name-input").value.trim();
-    if (!name) return alert("Digite um nome!");
+    </main>
 
-    currentPlayerName = name;
-    document.getElementById("player-name-display").textContent = name;
+    <footer id="contato" class="text-center p-4 section-darker">
+        <p class="lead mb-3">Vamos conversar?</p>
+        <div class="mb-3">
+            <a href="mailto:seu-email@dominio.com" class="text-white-50 mx-2 fs-5">naclaraskz@gmail.com</a>
+        </div>
+        <div>
+            <a href="https://www.linkedin.com/in/ana-clara-nunes-pereira-7a2018399/" target="_blank" class="btn-social mx-2"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/sunoonana" target="_blank" class="btn-social mx-2"><i class="bi bi-github"></i></a>
+        </div>
+        <p class="mt-4 text-white-50">&copy; 2025 Ana Clara Nunes Pereira. Feito com <i class="bi bi-heart-fill text-danger"></i>.</p>
+    </footer>
 
-    score = 0;
-    currentQuestionIndex = 0;
-    document.getElementById("score-display").textContent = score;
-
-    questionsShuffled = [...questions]
-        .sort(() => Math.random() - 0.5)
-        .slice(0, QUESTIONS_PER_GAME);
-
-    nameContainer.style.display = "none";
-    resultContainer.style.display = "none";
-    gameContainer.style.display = "block";
-
-    loadQuestion();
-}
-
-function loadQuestion() {
-    const q = questionsShuffled[currentQuestionIndex];
-    document.getElementById("question-title").textContent = `Pergunta ${currentQuestionIndex + 1} / ${questionsShuffled.length}`;
-    document.getElementById("question-text").textContent = q.question;
-
-    const optionsContainer = document.getElementById("options-container");
-    optionsContainer.innerHTML = "";
-
-    q.options.forEach(option => {
-        const btn = document.createElement("button");
-        btn.className = "btn btn-outline-primary option-btn btn-lg";
-        btn.textContent = option;
-        btn.onclick = () => selectAnswer(option, q.answer, btn);
-        optionsContainer.appendChild(btn);
-    });
-}
-
-function selectAnswer(selected, correct, button) {
-    const all = document.querySelectorAll("#options-container button");
-    all.forEach(b => b.disabled = true);
-
-    if (selected === correct) {
-        score++;
-        document.getElementById("score-display").textContent = score;
-        button.classList.replace("btn-outline-primary", "btn-success");
-    } else {
-        button.classList.replace("btn-outline-primary", "btn-danger");
-        all.forEach(b => {
-            if (b.textContent === correct) b.classList.replace("btn-outline-primary","btn-success");
-        });
-    }
-
-    setTimeout(() => {
-        currentQuestionIndex++;
-        currentQuestionIndex < questionsShuffled.length ? loadQuestion() : endGame();
-    }, 1200);
-}
-
-function endGame() {
-    gameContainer.style.display = "none";
-    resultContainer.style.display = "block";
-    document.getElementById("final-score-text").textContent = `Você acertou ${score} de ${questionsShuffled.length}.`;
-
-    saveScore(currentPlayerName, score);
-}
-
-function showNameScreen() {
-    nameContainer.style.display = "block";
-    gameContainer.style.display = "none";
-    resultContainer.style.display = "none";
-    document.getElementById("player-name-input").value = "";
-}
-
-function saveScore(name, scoreValue) {
-    if (scoreValue === 0) return;
-
-    highScores.push({ name, score: scoreValue });
-    highScores.sort((a,b) => b.score - a.score);
-    highScores = highScores.slice(0,3);
-
-    localStorage.setItem("quizHighScores", JSON.stringify(highScores));
-    renderScores();
-}
-
-function renderScores() {
-    const tbody = document.getElementById("high-score-list");
-    tbody.innerHTML = "";
-
-    if (highScores.length === 0)
-        return tbody.innerHTML = `<tr><td colspan="3" class="text-center text-muted">Sem registros.</td></tr>`;
-
-    highScores.forEach((item, i) => {
-        tbody.innerHTML += `
-            <tr class="text-center">
-                <td>${i === 0 ? "🥇" : i === 1 ? "🥈" : "🥉"}</td>
-                <td>${item.name}</td>
-                <td>${item.score}</td>
-            </tr>
-        `;
-    });
-}
-
-function clearHighScores() {
-    if (!confirm("Deseja apagar todo o ranking?")) return;
-    highScores = [];
-    localStorage.removeItem("quizHighScores");
-    renderScores();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    const saved = localStorage.getItem("quizHighScores");
-    if (saved) highScores = JSON.parse(saved);
-    renderScores();
-});
-</script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
